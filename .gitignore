@@ -1,0 +1,7 @@
+__pycache__
+migrations
+settings.py 
+wsgi.py 
+asgi.py 
+db.sqlite3
+manage.py 
