@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col mt-4">
+        <h4> Departmental Account Details for First Semester Tutorials</h4>
+        <h5>PLEASE FILL OUT THE FORM</h5>
+        <form action="{% url 'records:add_details' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+            
+            
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col mt-4">
+        {% if submitbutton == 'Search' and request.GET.search != '' %}
+            {% if results %}
+                <h4>Results for <b>{{ request.GET.search }} in mechanical engineering</b></h4>
+                {% for result in results %}
+                   <a href="{% url 'records:mech_details' %}"><h5>Name: {{ result.name_of_students }}</h5></a>
+                   <h5>ID: {{ result.id }}</h5>
+                    <h5>Amount: {{ result.amount }}</h5>
+                    <h5>Balance: {{ result.balance }}</h5>
+                {% endfor %}
+            {% endif %}
+            {% if elect_results %}
+                <h4>Results for <b>{{ request.GET.search }} in electrical engineering</b></h4>
+                {% for elect_result in elect_results %}
+                   <a href="{% url 'records:elect_details' %}"><h5>Name: {{ elect_result.name_of_students }}</h5></a>
+                   <h5>ID: {{ elect_result.id }}</h5>
+                    <h5>Amount: {{ elect_result.amount }}</h5>
+                    <h5>Balance: {{ elect_result.balance }}</h5>
+                {% endfor %}
+            {% endif %}
+            {% if civil_results %}
+                <h4>Results for <b>{{ request.GET.search }} in civil engineering</b></h4>
+                {% for civil_result in civil_results %}
+                   <a href="{% url 'records:civil_details' %}"><h5>Name: {{ civil_result.name_of_students }}</h5></a>
+                   <h5>ID: {{ civil_result.id }}</h5>
+                    <h5>Amount: {{ civil_result.amount }}</h5>
+                    <h5>Balance: {{ civil_result.balance }}</h5>
+                {% endfor %}
+            {% endif %}
+            {% if comp_sci_results %}
+                <h4>Results for <b>{{ request.GET.search }} in computer science department</b></h4>
+                {% for comp_sci_result in comp_sci_results %}
+                   <a href="{% url 'records:computer_science_details' %}"><h5>Name: {{ comp_sci_result.name_of_students }}</h5></a>
+                   <h5>ID: {{ comp_sci_result.id }}</h5>
+                    <h5>Amount: {{ comp_sci_result.amount }}</h5>
+                    <h5>Balance: {{ comp_sci_result.balance }}</h5>
+                {% endfor %}
+            {% endif %}
+            {% if comp_engr_results %}
+                <h4>Results for <b>{{ request.GET.search }} in computer engineering department</b></h4>
+                {% for comp_engr_result in comp_engr_results %}
+                   <a href="{% url 'records:comp_engr_details' %}"><h5>Name: {{ comp_engr_result.name_of_students }}</h5></a>
+                   <h5>ID: {{ comp_engr_result.id }}</h5>
+                    <h5>Amount: {{ comp_engr_result.amount }}</h5>
+                    <h5>Balance: {{ comp_engr_result.balance }}</h5>
+                {% endfor %}
+            {% endif %}
+            {% if pharm_results %}
+                <h4>Results for <b>{{ request.GET.search }} in pharmaceutical technology department</b></h4>
+                {% for pharm_result in pharm_results %}
+                   <a href="{% url 'records:pharm_tech_details' %}"><h5>Name: {{ pharm_result.name_of_students }}</h5></a>
+                   <h5>ID: {{ pharm_result.id }}</h5>
+                    <h5>Amount: {{ pharm_result.amount }}</h5>
+                    <h5>Balance: {{ pharm_result.balance }}</h5>
+                {% endfor %}
+            {% endif %}
+            {% if sci_results %}
+                <h4>Results for <b>{{ request.GET.search }} in science laboratory department</b></h4>
+                {% for sci_result in sci_results %}
+                    <a href="{% url 'records:science_lab_details' %}"><h5>Name: {{ sci_result.name_of_students }}</h5></a>
+                    <h5>ID: {{ sci_result.id }}</h5>
+                    <h5>Amount: {{ sci_result.amount }}</h5>
+                    <h5>Balance: {{ sci_result.balance }}</h5>
+                {% endfor %}
+            {% endif %}
+            {% if food_results %}
+                <h4>Results for <b>{{ request.GET.search }} in Food science department</b></h4>
+                {% for food_result in food_results %}
+                   <a href="{% url 'records:food_tech_details' %}"><h5>Name: {{ food_result.name_of_students }}</h5></a>
+                   <h5>ID: {{ food_result.id }}</h5>
+                    <h5>Amount: {{ food_result.amount }}</h5>
+                    <h5>Balance: {{ food_result.balance }}</h5>
+                {% endfor %}
+            {% endif %}
+            {% if dispensary_results %}
+                <h4>Results for <b>{{ request.GET.search }} in dispensary department</b></h4>
+                {% for dispensary_result in dispensary_results %}
+                   <a href="{% url 'records:dispense_details' %}"><h5>Name: {{ dispensary_result.name_of_students }}</h5></a>
+                   <h5>ID: {{ dispensary_result.id }}</h5>
+                    <h5>Amount: {{ dispensary_result.amount }}</h5>
+                    <h5>Balance: {{ dispensary_result.balance }}</h5>
+                {% endfor %}
+            {% endif %}
+            {% if agric_results %}
+                <h4>Results for <b>{{ request.GET.search }} in agricultural engineering department</b></h4>
+                {% for agric_result in agric_results %}
+                   <a href="{% url 'records:agric_engr_details' %}"><h5>Name: {{ agric_result.name_of_students }}</h5></a>
+                   <h5>ID: {{ agric_result.id }}</h5>
+                    <h5>Amount: {{ agric_result.amount }}</h5>
+                    <h5>Balance: {{ agric_result.balance }}</h5>
+                {% endfor %}
+            {% endif %}
+            {% else %}
+                <h4>No search results for this query</h4>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

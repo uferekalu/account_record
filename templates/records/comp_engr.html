@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Computer Engineering Account{% endblock %}
+{% block content %}
+    <div class="row mt-4">
+        <div class="col">
+            <ul class="list-group">
+                    <h3> Computer Engineering Account Details for First Semester Tutorials</h3>
+                    <h3>Total Amount for Computer Engineering: {{ total }}</h3>
+                    <div class="row">
+                        <div class="col-9">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                    <th scope="col">S/NO</th>
+                                    <th scope="col">NAME OF STUDENTS</th>
+                                    <th scope="col">AMOUNT</th>
+                                    <th scope="col">BALANCE</th>
+                                    <th scope="col">TOTAL</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    {% for comp_engr_list in comp_engr_lists %}
+                    <div class="row">
+                        <div class="col-9">
+                            <table class="table-data">
+                                <tbody>
+                                    <tr class="data">
+                                        <th scope="row">{{ comp_engr_list.id }}</th>
+                                        <td>{{ comp_engr_list.name_of_students }}</td>
+                                        <td>{{ comp_engr_list.amount }}</td>
+                                        <td>{{ comp_engr_list.balance }}</td>
+                                        <td>{{ comp_engr_list.total }}</td>
+
+                                        <td><a id="update" href="{% url 'records:comp_engr_update' comp_engr_list.id %}">Update</a></td>
+                                        <td>
+                                            <div class="float-right">
+                                            <form action="{% url 'records:delete_comp_engr' comp_engr_list.id %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" id="delete">Delete</button>
+                                            </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>         
+                        </div>
+                    </div>
+                        
+                    {% endfor %}
+             
+                
+            </ul>
+        </div>
+    </div>
+{% endblock content %}

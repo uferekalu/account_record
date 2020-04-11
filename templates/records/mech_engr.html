@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Mechanical Engineering Account{% endblock %}
+{% block content %}
+    <div class="row mt-4">
+        <div class="col">
+            <ul class="list-group">
+                    <h3> Mechanical Engineering Account Details for First Semester Tutorials</h3>
+                    <h3>Total Amount for Mechanical Engineering: {{ total }}</h3>
+                    <div class="row">
+                        <div class="col-9">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                    <th scope="col">S/NO</th>
+                                    <th scope="col">NAME OF STUDENTS</th>
+                                    <th scope="col">AMOUNT</th>
+                                    <th scope="col">BALANCE</th>
+                                    <th scope="col">TOTAL</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    {% for mech_list in mech_lists %}
+                    
+                    <div class="row">
+                        <div class="col-9">
+                            <table class="table-data">
+                                <tbody>
+                                    <tr class="data">
+                                        <th scope="row">{{ mech_list.id }}</th>
+                                        <td>{{ mech_list.name_of_students }}</td>
+                                        <td>{{ mech_list.amount }}</td>
+                                        <td>{{ mech_list.balance }}</td>
+                                        <td>{{ mech_list.total }}</td>
+
+                                        <td><a id="update" href="{% url 'records:mech_update' mech_list.id %}">Update</a></td>
+                                        <td>
+                                            <div class="float-right">
+                                            <form action="{% url 'records:delete_mech' mech_list.id %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" id="delete">Delete</button>
+                                            </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>         
+                        </div>
+                    </div>
+                        
+                    {% endfor %}
+             
+                
+            </ul>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Science Laboratory Account{% endblock %}
+{% block content %}
+    <div class="row mt-4">
+        <div class="col">
+            <ul class="list-group">
+                    <h3> Sciencel Laboratory Technology Account Details for First Semester Tutorials</h3>
+                    <h3>Total Amount for Science Laboratory Technology: {{ total }}</h3>
+                    <div class="row">
+                        <div class="col-9">
+                            <table class="table">
+                                <thead class="thead">
+                                    <tr>
+                                    <th scope="col">S/NO</th>
+                                    <th scope="col">NAME OF STUDENTS</th>
+                                    <th scope="col">AMOUNT</th>
+                                    <th scope="col">BALANCE</th>
+                                    <th scope="col">TOTAL</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    {% for science_lab_list in science_lab_lists %}
+                    <div class="row">
+                        <div class="col-9">
+                            <table class="table-data">
+                                <tbody>
+                                    <tr class="data">
+                                        <th scope="row">{{ science_lab_list.id }}</th>
+                                        <td>{{ science_lab_list.name_of_students }}</td>
+                                        <td>{{ science_lab_list.amount }}</td>
+                                        <td>{{ science_lab_list.balance }}</td>
+                                        <td>{{ science_lab_list.total }}</td>
+
+                                        <td><a id="update" href="{% url 'records:sci_lab_update' science_lab_list.id %}">Update</a></td>
+                                        <td>
+                                            <div class="float-right">
+                                            <form action="{% url 'records:delete_sci_lab' science_lab_list.id %}" method="post">
+                                                {% csrf_token %}
+                                                <button type="submit" id="delete">Delete</button>
+                                            </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>         
+                        </div>
+                    </div>
+                        
+                    {% endfor %}
+             
+                
+            </ul>
+        </div>
+    </div>
+{% endblock content %}
