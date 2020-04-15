@@ -6,10 +6,10 @@
     <div class="row mt-4">
         <div class="col">
             <ul class="list-group">
-                    <h3> Electrical Engineering Account Details for First Semester Tutorials</h3>
-                    <h3>Total Amount for Electrical Engineering: {{ total }}</h3>
-                    <div class="row">
-                        <div class="col-9">
+                    <h5> Electrical Engineering Account Details for First Semester Tutorials</h5>
+                    <h5>Total Amount for Electrical Engineering: {{ total }}</h5>
+                    <div class="row mt-4">
+                        <div class="col-8">
                             <table class="table">
                                 <thead class="thead">
                                     <tr>
@@ -25,8 +25,8 @@
                     </div>
                     {% for elect_list in elect_lists %}
                     <div class="row">
-                        <div class="col-9">
-                            <table class="table-data">
+                        <div class="col-12">
+                            <table class="table">
                                 <tbody>
                                     <tr class="data">
                                         <th scope="row">{{ elect_list.id }}</th>

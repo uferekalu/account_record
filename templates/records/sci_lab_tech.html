@@ -5,10 +5,10 @@
     <div class="row mt-4">
         <div class="col">
             <ul class="list-group">
-                    <h3> Sciencel Laboratory Technology Account Details for First Semester Tutorials</h3>
-                    <h3>Total Amount for Science Laboratory Technology: {{ total }}</h3>
-                    <div class="row">
-                        <div class="col-9">
+                    <h5> Sciencel Laboratory Technology Account Details for First Semester Tutorials</h5>
+                    <h5>Total Amount for Science Laboratory Technology: {{ total }}</h5>
+                    <div class="row mt-4">
+                        <div class="col-8">
                             <table class="table">
                                 <thead class="thead">
                                     <tr>
@@ -24,8 +24,8 @@
                     </div>
                     {% for science_lab_list in science_lab_lists %}
                     <div class="row">
-                        <div class="col-9">
-                            <table class="table-data">
+                        <div class="col-12">
+                            <table class="table">
                                 <tbody>
                                     <tr class="data">
                                         <th scope="row">{{ science_lab_list.id }}</th>
